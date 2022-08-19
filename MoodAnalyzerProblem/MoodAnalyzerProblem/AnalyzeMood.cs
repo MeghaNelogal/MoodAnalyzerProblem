@@ -9,6 +9,11 @@ namespace MoodAnalyzerProblem
     public class AnalyzeMood
     {
         string message;
+
+        public AnalyzeMood()
+        {
+        }
+
         public AnalyzeMood(string message)
         {
             this.message = message;
