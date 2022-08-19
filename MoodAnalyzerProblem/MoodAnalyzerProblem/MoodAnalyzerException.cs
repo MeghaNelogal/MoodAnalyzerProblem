@@ -12,7 +12,8 @@ namespace MoodAnalyzerProblem
         {
             NULL_MOOD, EMPTY_MOOD,
             NO_SUCH_CLASS,
-            NO_SUCH_METHOD
+            NO_SUCH_METHOD,
+            NO_SUCH_FIELD
         }
         public ExceptionType exceptionType;
         public MoodAnalyzerException(ExceptionType type, string message) : base(message)
