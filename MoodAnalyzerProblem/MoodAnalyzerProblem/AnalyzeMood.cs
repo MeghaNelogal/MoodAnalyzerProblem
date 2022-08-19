@@ -9,12 +9,11 @@ namespace MoodAnalyzerProblem
     public class AnalyzeMood
     {
         string message;
-
-        public AnalyzeMood()
-        {
-        }
-
         public AnalyzeMood(string message)
+        {
+            this.message = message;
+        }
+        public AnalyzeMood()
         {
             this.message = message;
         }
@@ -22,6 +21,15 @@ namespace MoodAnalyzerProblem
         {
             try
             {
+                if (message == null)
+                {
+                    throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL_MOOD, "message is Null");
+                }
+                if (message.Equals(""))
+                {
+                    throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY_MOOD, "message is Empty");
+
+                }
                 if (message.ToLower().Contains("sad"))
                 {
                     return "Sad";
@@ -30,13 +38,11 @@ namespace MoodAnalyzerProblem
                 {
                     return "Happy";
                 }
-                return message;
             }
-            catch (Exception)
+            catch (MoodAnalyzerException ex)
             {
-                return "Happy";
+                return ex.Message;
             }
         }
     }
 }
-       

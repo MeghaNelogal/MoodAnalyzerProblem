@@ -38,6 +38,13 @@ namespace TestMoodAnalyzer
             object obj = MoodAnalyzerFactory.CreateAnalyzeMood("MoodAnalyzerProblem.AnalyzeMood", "AnalyzeMood");
             expected.Equals(obj);
         }
+        [TestMethod]
+        public void GivenAnalyzeMoodClassName_ShouldReturnMoodAnalyzeObject_UsingParameterizedConstrctor()
+        {
+            object expected = new AnalyzeMood("HAPPY");
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyzeUsingParameterizedConstrctor("MoodAnalyzerProblem.AnalyzeMood", "AnalyzeMood", "HAPPY");
+            expected.Equals(obj);
+        }
     }
 
 }
